@@ -5,6 +5,7 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 const TODOS_LS = "toDos";
 
 let toDos = [];
+let idNumbers = 1;
 
 function deleteToDo(event) {
   const btn = event.target;
@@ -25,9 +26,10 @@ function paintToDo(text) {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
   const span = document.createElement("span");
-  const newId = toDos.length + 1;
+  const newId = idNumbers;
+  idNumbers += 1;
   delBtn.innerText = "❌";
-  delBtn.addEventListener("click", deleteToDo);
+  delBtn.addEventListener("mousedown", deleteToDo);
   span.innerText = text;
   li.appendChild(delBtn);
   li.appendChild(span);
@@ -41,7 +43,6 @@ function paintToDo(text) {
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
-  paintToDo(currentValue);
   /*내가 추가한 문장 - toDoInput이 비어있는채로 enter누를시 toDoList생성되지 않도록*/
   if (currentValue !== "") {
     paintToDo(currentValue);
