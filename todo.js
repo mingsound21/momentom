@@ -4,10 +4,17 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = "toDos";
 
-const toDos = [];
+let toDos = [];
 
-function deleteToDo(event){
-
+function deleteToDo(event) {
+  const btn = event.target;
+  const li = btn.parentNode;
+  toDoList.removeChild(li);
+  const cleanToDos = toDos.filter(function (toDo) {
+    return toDo.id !== parseInt(li.id);
+  });
+  toDos = cleanToDos;
+  saveToDos();
 }
 
 function saveToDos() {
@@ -20,16 +27,13 @@ function paintToDo(text) {
   const span = document.createElement("span");
   const newId = toDos.length + 1;
   delBtn.innerText = "❌";
-  delBtn.addEventListener("click",deleteToDo);
+  delBtn.addEventListener("click", deleteToDo);
   span.innerText = text;
   li.appendChild(delBtn);
   li.appendChild(span);
   li.id = newId;
   toDoList.appendChild(li);
-  const toDoObj = {
-    text: text,
-    id: newId,
-  };
+  const toDoObj = { text: text, id: newId };
   toDos.push(toDoObj);
   saveToDos();
 }
@@ -37,6 +41,7 @@ function paintToDo(text) {
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
+  paintToDo(currentValue);
   /*내가 추가한 문장 - toDoInput이 비어있는채로 enter누를시 toDoList생성되지 않도록*/
   if (currentValue !== "") {
     paintToDo(currentValue);
@@ -47,10 +52,10 @@ function handleSubmit(event) {
 function loadToDos() {
   const loadedToDos = localStorage.getItem(TODOS_LS);
   if (loadedToDos !== null) {
-    const parsedToDos = JSON.parse(loadToDos);
-    parsedToDos.forEach(function(toDo){
+    const parsedToDos = JSON.parse(loadedToDos);
+    parsedToDos.forEach(function (toDo) {
       paintToDo(toDo.text);
-    })
+    });
   }
 }
 
