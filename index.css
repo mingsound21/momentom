@@ -45,9 +45,9 @@ body {
 }
 
 .js-clock {
-  font-size: 60px;
+  font-size: 80px;
   height: 150px;
-  margin-bottom: 150px;
+  margin-bottom: 250px;
   transition: ease-in-out 1s;
 }
 
@@ -57,8 +57,9 @@ body {
 .js-greetings {
   font-size: 30px;
 }
-.form {
-  margin-bottom: 40px;
+.form,
+.js-toDoForm {
+  margin-bottom: 50px;
 }
 .js-toDoForm input,
 .form input {
@@ -81,7 +82,7 @@ body {
 .js-toDoForm input::placeholder,
 .form input::placeholder {
   color: rgb(255, 255, 255);
-  font-size: 30px;
+  font-size: 35px;
 }
 
 .js-toDoList button {
@@ -93,13 +94,13 @@ body {
 .js-toDoList li {
   border-bottom: 3px dashed rgb(68, 202, 243);
   margin: 5px 0px;
-  font-size: 28px;
+  font-size: 35px;
 }
 
 .js-weather {
   color: white;
   transition: ease-in-out 1s;
-  font-size: 20px;
+  font-size: 30px;
 }
 .js-weather:hover {
   color: rgb(140, 247, 68);
