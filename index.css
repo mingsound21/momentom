@@ -47,20 +47,18 @@ body {
 .js-clock {
   font-size: 60px;
   height: 150px;
-
+  margin-bottom: 150px;
   transition: ease-in-out 1s;
 }
-.js-clock h1 {
-  margin-bottom: 50px;
-}
+
 .js-clock:hover {
   color: black;
 }
 .js-greetings {
   font-size: 30px;
 }
-.form input {
-  margin-bottom: 20px;
+.form {
+  margin-bottom: 40px;
 }
 .js-toDoForm input,
 .form input {
