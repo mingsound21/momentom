@@ -47,8 +47,11 @@ body {
 .js-clock {
   font-size: 60px;
   height: 150px;
-  margin-bottom: 50px;
+
   transition: ease-in-out 1s;
+}
+.js-clock h1 {
+  margin-bottom: 50px;
 }
 .js-clock:hover {
   color: black;
